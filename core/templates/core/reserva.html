@@ -1,0 +1,123 @@
+{% extends 'core/base.html' %}
+
+{% block container %} 
+ <div class="subtop">
+			<ul>
+			    <li>novo</li>
+			    <li><a href="{% url 'proto:carro_lista' %}">listar</a></li>
+			    <li>atualizar</li>
+			    <li>deletar</li>
+			</ul>
+  <form >
+    <label for="fname"></label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <a type="submit" style='font-size:24px'><i class="glyphicon glyphicon-search" aria-hidden="true"></i></a>
+  </form>
+ </div>
+<div class="centro">
+<i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+
+<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+<span class="sr-only">Loading...</span>
+</div>
+ 
+{% endblock %}
+
+
+{% extends 'core/home.html' %}
+
+{% load bootstrap %}
+
+{% block title %} Administracao {% endblock %}
+
+{% block home %}
+
+<div class="container" id="wrapper">
+			
+	<div class="row">
+	<div class="col-lg-4 col-lg-offset-4" id="content">
+    <h3>Novo Veiculo</h3>    
+    <form method="POST" enctype="multipart/form-data">
+    <div class="form-row">
+    <div class="col-md-4 mb-3">
+        {% csrf_token %}
+
+        <label>Marca</label>
+        <div class="form-group">
+			<div class="input-group">
+				{{ form.marca }}
+			</div>
+		</div>
+
+		<label>Modelo</label>
+		<div class="form-group">
+			<div class="input-group">
+				{{ form.modelo }}
+			</div>
+		</div>
+
+        <label>Portas</label>   
+        <div class="form-group">
+			<div class="input-group">
+				{{form.portas}}
+			</div>
+		</div>  
+
+        <label>Ar Cond.</label>
+        <div class="form-group">
+			<div class="input-group">
+				  {{form.ar}}
+			</div>
+		</div> 
+      
+        <label>Motor</label>
+        <div class="form-group">
+			<div class="input-group">
+				  {{form.motor}}
+			</div>
+		</div> 
+        
+        <label>Cor</label>
+        <div class="form-group">
+			<div class="input-group">
+				  {{form.cor}}
+			</div>
+		</div> 
+        
+        <label>fabricação</label>
+        <div class="form-group">
+			<div class="input-group">
+				  {{form.fabricacao}}
+			</div>
+		</div> 
+        
+        <label>Status</label>
+        <div class="form-group">
+			<div class="input-group">
+				   {{form.status}}
+			</div>
+		</div> 
+       
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+    </div>
+    </form>
+  </div>
+ </div>
+</div> 
+{% endblock %}
+
+
+
+          
