@@ -34,8 +34,6 @@ def register(request):
     return render(request, template_name, context)
 
 
-
-
 # '''
 # funcao para alterar senha na tela de login,
 # com o usuario fora do sistema sem logar
